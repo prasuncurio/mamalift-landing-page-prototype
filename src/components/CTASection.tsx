@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Shield, Clock, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLoading } from "@/contexts/LoadingContext";
 
 export const CTASection = () => {
+  const { setIsLoading } = useLoading();
+
+  const handleStartProgram = () => {
+    setIsLoading(true);
+    // Small delay to show the loading state, then clear it when navigation completes
+    setTimeout(() => setIsLoading(false), 1000);
+  };
   return (
     <section className="py-16 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="container mx-auto px-4">
@@ -46,9 +55,11 @@ export const CTASection = () => {
 
             {/* Primary CTA */}
             <div className="text-center mb-6">
-              <Button size="lg" className="text-xl px-12 py-6 mb-4">
-                Start My Program
-                <ArrowRight className="w-5 h-5 ml-2" />
+              <Button size="lg" className="text-xl px-12 py-6 mb-4" asChild>
+                <Link to="/registration/start" onClick={handleStartProgram}>
+                  Start My Program
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
               </Button>
               <p className="text-sm text-muted-foreground">
                 No payment required to begin assessment • Cancel anytime

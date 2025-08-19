@@ -1,7 +1,16 @@
+import { Link } from "react-router-dom";
+import { useLoading } from "@/contexts/LoadingContext";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/mama-hero.avif";
 
 export const HeroSection = () => {
+  const { setIsLoading } = useLoading();
+
+  const handleStartProgram = () => {
+    setIsLoading(true);
+    // Small delay to show the loading state, then clear it when navigation completes
+    setTimeout(() => setIsLoading(false), 1000);
+  };
   return (
     <section className="bg-gradient-to-br from-background to-secondary py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -17,13 +26,24 @@ export const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8 py-6">
-                Start My Program
+              <Button size="lg" className="text-lg px-8 py-6" asChild>
+                <Link to="/registration/start" onClick={handleStartProgram}>
+                  Start My Program
+                </Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-6"
+                onClick={() => {
+                  document.getElementById('crisis-support')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+              >
                 Get Support Now
               </Button>
-            </div>
+              </div>
             
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">

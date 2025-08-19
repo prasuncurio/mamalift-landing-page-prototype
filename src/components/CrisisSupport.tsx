@@ -87,7 +87,7 @@ export const CrisisSupport = () => {
   };
 
   return (
-    <section className="py-16 bg-crisis/5">
+    <section id="crisis-support" className="py-16 bg-crisis/5">
       <div className="container mx-auto px-4">
         <Card className="p-8 md:p-12 bg-card border-crisis/20 shadow-lg">
           <div className="text-center mb-8">
