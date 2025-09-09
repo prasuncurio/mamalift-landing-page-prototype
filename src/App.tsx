@@ -28,7 +28,7 @@ const AppContent = () => {
     <>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<FraudAnalyticsChatbot />} />
         <Route path="/registration/start" element={<RegistrationIntro />} />
         <Route path="/registration/step1" element={<EPDSAssessment />} />
         <Route path="/registration/step2" element={<AssessmentResults />} />
