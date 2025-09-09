@@ -17,6 +17,7 @@ import { AssessmentResults } from "./pages/registration/AssessmentResults";
 import { PersonalizationForm } from "./pages/registration/PersonalizationForm";
 import { InsuranceTherapistMatching } from "./pages/registration/InsuranceTherapistMatching";
 import { RegistrationComplete } from "./pages/registration/RegistrationComplete";
+import {FraudAnalyticsChatbot} from "./pages/chatbot/FraudAnalyticsChatbot"
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const AppContent = () => {
         <Route path="/registration/step3" element={<PersonalizationForm />} />
         <Route path="/registration/step4" element={<InsuranceTherapistMatching />} />
         <Route path="/registration/complete" element={<RegistrationComplete />} />
+        <Route path="/chatbot/" element={<FraudAnalyticsChatbot />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
